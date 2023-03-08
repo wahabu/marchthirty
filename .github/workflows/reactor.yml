@@ -1,2 +1,5 @@
 on: push
 name: Really cool Reactor demo
+jobs:
+  build-job:
+    name: Build .NET project
