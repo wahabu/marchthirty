@@ -8,3 +8,10 @@ jobs:
     steps:
       - run: dotnet --version
         name: Check .NET version
+      - uses: actions/checkout@v3
+        name: Checkout code
+      - run: |
+          dotnet publish \
+          --configuration Release \
+          --output out
+        name: Publish .NET web application
