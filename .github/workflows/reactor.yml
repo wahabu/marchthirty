@@ -1,6 +1,15 @@
 on: push
 name: Really cool Reactor demo
 jobs:
+  push-to-azure:
+    name: Publish Azure resources
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout code
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
   build-job:
     name: Build .NET project
     runs-on: ubuntu-latest
