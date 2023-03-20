@@ -10,6 +10,13 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - run: |
+          az webapp up \
+          --name hibomarchthirty
+          --plan marchplan
+          --os-type linux
+          --runtime DOTNET:6.0
+        name: Push app content to App Service
   build-job:
     name: Build .NET project
     runs-on: ubuntu-latest
